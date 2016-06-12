@@ -81,6 +81,7 @@ class CategoryController extends SiteController {
         $this->assign('topCategoryInfo', $topCategoryInfo);
         $this->assign('crumb', $crumb);
         $this->assign('pageList', $pageList);
+        $this->assign("count",count($pageList));
         $this->assign('page', $page);
         $this->assign('media', $media);
         $this->assign('pageMaps', $pageMaps);

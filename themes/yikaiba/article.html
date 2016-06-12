@@ -1,0 +1,79 @@
+﻿<!doctype html>
+<html>
+<head>
+<!--#include file="resource.html"-->
+</head>
+<body>
+<!--#include file="nav.html"-->
+<div class="uicontent">
+  <h2 class="fn-clear">
+    <span>共<font class="f30">{$count}</font>篇文章</span>
+    <ul class="fn-clear fn-left">
+      <li class="selected"><a href="index.htmlarticle/">所有文章</a></li>
+    </ul>
+  </h2>
+  
+  <div class="listbox fn-clear">
+    <div class="arclist">
+      <ul>
+	<!--foreach{$pageList as $vo}--> 
+        <li class="fn-clear">
+          <a href="{$vo.aurl}"   class="imga">
+          <!--if{$vo['image']}-->
+            <img src="{$vo.image}" height="190px" width="275px;" alt="{$vo.title}">
+          <!--{else}-->
+          	<img src="__PUBLIC__/assets/img/fm.jpg" height="190px" width="275px;" alt="{$vo.title}">
+          <!--{/if}-->
+          </a>
+          <div class="upYqBoxCon">
+            <div class="arcTitle">
+              <b><a href="{$vo.aurl}"  >{$vo.title}</a></b>
+            </div>
+            <div class="blackLink">
+              <p>
+                发布时间：{date('Y-m-d',$vo['time'])}  
+              </p>
+              <p class="mt10">{$vo.title}</p>
+            </div>
+          </div>
+        </li>
+       <!--{/foreach}-->
+            </ul>
+      <div class="wpages fn-clear">
+        <div class="yk_page"> <ul> {$page} </ul></div>     
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wfooter">
+  <div class="links">
+    <h2>友情链接</h2>
+    <a href="http://www.bixiaguangnian.com" target="_blank">笔下光年</a><a href="http://www.bcoder.cn" target="_blank">bcoder编程学习网</a><a href="http://www.daoyuanit.com" target="_blank">海南IT社区</a>	<script type="text/javascript" src="../assets/js/6976040794367b6c2914820d35d8558d"></script>
+  </div>
+  <div class="aboutweb">
+    <p>
+      <a href="http://www.uishijie.com/singlepage/1.html">网站申明</a><a href="http://www.uishijie.com/singlepage/2.html">关于我们</a>      <small> <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254553417'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254553417' type='text/javascript'%3E%3C/script%3E"));</script></small>
+    </p>
+    <p>
+    © 2015 UI世界(www.uishijie.com)声明：本站所述言论、本章、截图均来自网络或仅代表个人观点，版权归原作者所有，在此只是加以分享。如有冒犯，请来信说明。    </p>
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(e) {
+	$(".category").hover(
+	    function(){
+		    $('.typebox').slideDown("fast");
+		},
+		function(){
+		    $('.typebox').stop(true).slideUp("fast");
+		}
+	);
+	$(".typebox").find('li').click(function(){
+	    $(".catetext").text($(this).text());
+		$("#catid").val($(this).attr("data-id"));
+		$('.typebox').stop(true).slideUp("fast");
+	});
+});
+</script>
+</body>
+</html>
